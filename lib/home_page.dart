@@ -11,10 +11,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Text('image one'),
-          Expanded(child: Image.asset(AppAssets.bgImage)),
-          Text('image one'),
-          Expanded(child: Image.asset(AppAssets.secondImage)),
+          const Text('image one'),
+          Expanded(child: Image.asset(AppAssets.bgImage,width: w,)),
+          const Text('image second'),
+          Expanded(child: Image.asset(AppAssets.secondImage,width: w,)),
         ],
       ),
     );
