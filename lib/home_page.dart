@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(title: const Text('html rendered'),),
       body: Column(
         children: [
           const Text('image one'),
