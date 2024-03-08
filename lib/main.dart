@@ -1,7 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:test/app_assets.dart';
 import 'package:test/home_page.dart';
+import 'package:test/splash_screen.dart';
 
+
+List<String> assetImages = [
+  AppAssets.bgImage,
+  AppAssets.secondImage
+];
+ 
 void main() {
+
+  final binding = WidgetsFlutterBinding.ensureInitialized();
+
+  binding.addPostFrameCallback((_) async {
+    Element? context = binding.renderViewElement;
+    if(context != null)
+      {
+
+        // precacheImage(AppAssets.bgImage, context);
+        for(var asset in assetImages)
+        {
+          precacheImage(AssetImage(asset), context);
+        }
+      }
+  });
+  
   runApp(const MyApp());
 }
 
@@ -12,7 +36,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'web checking',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -32,7 +56,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const SplashScreen(),
     );
   }
 }
